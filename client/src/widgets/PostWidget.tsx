@@ -10,7 +10,7 @@ import { BiDownvote } from "react-icons/bi"
 const PostWidget = () => {
 
   const postRef = useRef(null);
-  const videoRef = useRef(null);
+  const videoRef = useRef<any>(null);
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
