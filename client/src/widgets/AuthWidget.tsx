@@ -154,7 +154,7 @@ const AuthWidget = ({ variant, setWidgetVisible, setVariant }: AuthWidgetProps) 
             }
             
             <button 
-            onClick={loginWithGoogle}
+            onClick={() => loginWithGoogle()}
             className="hover:bg-gray-300/40 transition duration-10 cursor-pointer flex items-center gap-x-2 mt-6 border-2 border-gray-300 border-solid px-10 py-1 rounded-md text-black/70">
                 <FcGoogle className="text-[30px]"/>
                 Continue with Google
