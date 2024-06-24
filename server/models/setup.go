@@ -21,7 +21,7 @@ func ConnectDatabase() {
 
 	DBURL := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=disable", DbHost, DbUser, DbPassword, DbName, DbPort)
 
-	DB, err = gorm.Open(Dbdriver, DBURL)
+	DB, err := gorm.Open(Dbdriver, DBURL)
 
 	if err != nil {
 		fmt.Println("Cannot connect to database ", Dbdriver)
