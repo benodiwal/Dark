@@ -1,14 +1,28 @@
 package main
 
 import (
+	"log"
+	"os"
 	"sachin/server/middlewares"
 	"sachin/server/models"
 	"sachin/server/routes"
-	"github.com/gin-gonic/gin"
+
 	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+
+	err := godotenv.Load()
+    if err != nil {
+        log.Fatal("Error loading .env file")
+    }
+
+	port := os.Getenv("PORT")
+    if port == "" {
+        log.Fatal("PORT environment variable is not set")
+    }	
 
 	// Connecting database
 	models.ConnectDatabase()
@@ -26,5 +40,5 @@ func main() {
 	routes.InitializeRoutes(r)
 
 	// Starting server on port 3000
-	r.Run(":3001")
+	r.Run(":" + port)
 }
